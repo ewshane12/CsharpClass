@@ -17,14 +17,13 @@ namespace ConsoleApplication3
             int i = 0;
             float Xsum = 0;
             float Ysum = 0;
-            Boolean done = true;
 
             Random random = new Random();// instantiates a new random instance
             Console.WriteLine("Please tell me how many steps to take.");
             total = Convert.ToInt32(Console.ReadLine());
            
 
-            while (done)
+            if (total == total)
             {
                 PosX = 0;
                 PosY = 0;
@@ -48,8 +47,7 @@ namespace ConsoleApplication3
                     }
                     
                     i++;//increases until user input is reached
-                    if (i == total)
-                        done = false;
+                    if (i == total) 
                         Xsum += PosX;
                         Ysum += PosY;
                 }
