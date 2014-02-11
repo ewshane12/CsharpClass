@@ -2,57 +2,63 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace ARandomWalk
+namespace ConsoleApplication3
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int stepsTaken = 0;
-            int totalSteps = 0;
-            int xPos = 0, yPos = 0;
+            int steps = 0;
+            int total = 0;
+            int PosX = 0;
+            int PosY = 0;
             int i = 0;
-            float sumX = 0, sumY = 0;
+            float Xsum = 0;
+            float Ysum = 0;
             Boolean done = true;
 
-            Random random = new Random();//Create a new random instance
-            Console.WriteLine("Pls give me the number of steps I should take!");
-            totalSteps = Convert.ToInt32(Console.ReadLine());
+            Random random = new Random();// instantiates a new random instance
+            Console.WriteLine("Please tell me how many steps to take.");
+            total = Convert.ToInt32(Console.ReadLine());
+           
 
             while (done)
             {
-                xPos = yPos = 0;
-                for (stepsTaken = 0; stepsTaken <= totalSteps; stepsTaken++)
+                PosX = 0;
+                PosY = 0;
+                for (steps = 0; steps <= total; steps++)
                 {
-
-                    int step = random.Next(100);//generate numbers between 0 and 99
+                    int step = random.Next(100);//gives a random number from 0-99
                     switch (step % 4)
                     {
                         case 0:
-                            xPos++;
+                            PosX++;
                             break;
                         case 1:
-                            xPos--;
+                            PosX--;
                             break;
                         case 2:
-                            yPos++;
+                            PosY++;
                             break;
                         case 3:
-                            yPos--;
+                            PosY--;
                             break;
                     }
-                    i++;//loop counter
-                    if(i == 100)
+                    
+                    i++;//increases until user input is reached
+                    if (i == total)
                         done = false;
-                    sumX += xPos;
-                    sumY += yPos;
-                } 
+                        Xsum += PosX;
+                        Ysum += PosY;
+                }
+
             }
-            sumX /= 100; // /= looks like a sad face
-            sumY /= 100;
-            Console.WriteLine("Phew! I wound up here a lot! ({0} {1})",sumX,sumY);
-            Console.ReadKey();
+            Xsum /= 100;//means Xsum = Xsum / 100
+            Ysum /= 100;
+            Console.WriteLine("Here are my average coordinates, ({0},{1})", Xsum, Ysum);
+            Console.ReadLine();
         }
     }
 }
